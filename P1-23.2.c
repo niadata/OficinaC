@@ -44,25 +44,37 @@ int main()
 }
 
 // # QUESTÃO 2
-// NÃO ENTENDI
+// Essa questão se trata de truncagem. Logo ele abstraí o valor após a vígula, as funções solicitadas são do ensino médio vale revisar.
+
+int piso(float x) {
+    int x_truncado = x;
+    return (x < 0 && x != x_truncado) ? x - 1 : x;
+}
+int teto(float x) {
+    int x_truncado = x;
+    return (x > 0 && x != x_truncado) ? x + 1 : x;
+}
+int relacao(float a, float b) {
+    return (piso(a) + piso(b)) / 2.0 == piso((a + b) / 2.0);
+}
 
 // # QUESTÃO 3
 #include <stdlib.h>
 
 int main()
 {
-    int i, s;
+    int i, s, soma=0;
     printf("Enter a number: ");
     scanf("%d", &s);
 
     if (s > 0)
     {
-
         for (i = 1; i <= s; i++)
         {
-
-            while (i % 2 == 0)
+            while (s%i == 0)
             {
+                soma +=i;
+                if (soma == s){
                 printf("%d\n", i);
                 break;
             }
